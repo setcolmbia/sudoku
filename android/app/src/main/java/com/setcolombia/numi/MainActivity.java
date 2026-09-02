@@ -1,4 +1,4 @@
-package com.setcolombia.sudokunova;
+package com.setcolombia.numi;
 
 import com.getcapacitor.BridgeActivity;
 

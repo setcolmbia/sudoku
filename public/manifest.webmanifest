@@ -1,6 +1,6 @@
 {
-  "name": "Sudoku Nova",
-  "short_name": "Sudoku Nova",
+  "name": "Numi",
+  "short_name": "Numi",
   "description": "Sudoku casual con notas, resaltados inteligentes y pistas.",
   "start_url": "./",
   "scope": "./",

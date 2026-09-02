@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Sudoku Nova</string>
-    <string name="title_activity_main">Sudoku Nova</string>
-    <string name="package_name">com.setcolombia.sudokunova</string>
-    <string name="custom_url_scheme">com.setcolombia.sudokunova</string>
+    <string name="app_name">Numi</string>
+    <string name="title_activity_main">Numi</string>
+    <string name="package_name">com.setcolombia.numi</string>
+    <string name="custom_url_scheme">com.setcolombia.numi</string>
 </resources>

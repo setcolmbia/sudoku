@@ -60,8 +60,8 @@ export function MainMenu() {
         <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-accent-500 text-3xl font-black text-white shadow-panel animate-float">
           9
         </div>
-        <h1 className="font-display text-4xl font-extrabold tracking-tight text-ink-100 sm:text-5xl">
-          Sudoku <span className="bg-gradient-to-r from-brand-400 to-accent-400 bg-clip-text text-transparent">Nova</span>
+        <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <span className="bg-gradient-to-r from-brand-400 to-accent-400 bg-clip-text text-transparent">Numi</span>
         </h1>
         <p className="mt-2 max-w-xs text-sm text-ink-500">
           Notas, resaltados inteligentes y pistas para un sudoku pulido de principio a fin.

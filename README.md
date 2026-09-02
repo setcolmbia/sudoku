@@ -1,4 +1,4 @@
-# Sudoku Nova
+# Numi
 
 Un sudoku casual con acabado profesional, construido con React + TypeScript + Vite. Publicado en web y empaquetado como app nativa de Android con Capacitor.
 
@@ -41,7 +41,7 @@ Cada push a `main` compila un APK de depuración automáticamente vía `.github/
 
 1. Ve a la pestaña **Actions** del repo → workflow **"Build Android APK"**.
 2. Entra al run más reciente (ícono ✅ verde).
-3. En la sección **Artifacts**, descarga `sudoku-nova-debug-apk` (es un .zip que contiene `app-debug.apk`).
+3. En la sección **Artifacts**, descarga `numi-debug-apk` (es un .zip que contiene `app-debug.apk`).
 4. Copia el `.apk` a tu teléfono e instálalo (Android te pedirá habilitar "instalar apps de fuentes desconocidas" la primera vez, solo para ese archivo).
 
 Es un build de *depuración* (sin firmar para Play Store), pensado para instalar y probar directamente. Para publicar en Play Store hace falta generar un build de release firmado con tu propio keystore — no cubierto aquí.

@@ -376,7 +376,7 @@ export const useGameStore = create<GameState>()(
       },
     }),
     {
-      name: 'sudoku-nova-save',
+      name: 'numi-save',
       partialize: (s) => ({
         status: s.status === 'playing' ? 'paused' : s.status,
         difficulty: s.difficulty,
