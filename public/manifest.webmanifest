@@ -1,0 +1,14 @@
+{
+  "name": "Sudoku Nova",
+  "short_name": "Sudoku Nova",
+  "description": "Sudoku casual con notas, resaltados inteligentes y pistas.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1220",
+  "theme_color": "#0f1220",
+  "icons": [
+    { "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
