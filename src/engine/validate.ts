@@ -45,6 +45,37 @@ export function computeConflicts(values: Grid): boolean[][] {
   return conflicts
 }
 
+/**
+ * For every cell and digit 1-9, whether that digit already appears in the
+ * cell's row, column or box — i.e. would be an invalid note/candidate there.
+ */
+export function computeNoteConflicts(values: Grid): boolean[][][] {
+  const rowHas = Array.from({ length: 9 }, () => Array(10).fill(false))
+  const colHas = Array.from({ length: 9 }, () => Array(10).fill(false))
+  const boxHas = Array.from({ length: 9 }, () => Array(10).fill(false))
+
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const v = values[r][c]
+      if (v === 0) continue
+      const b = boxOf(r, c)
+      rowHas[r][v] = true
+      colHas[c][v] = true
+      boxHas[b][v] = true
+    }
+  }
+
+  return Array.from({ length: 9 }, (_, r) =>
+    Array.from({ length: 9 }, (_, c) => {
+      const b = boxOf(r, c)
+      return Array.from({ length: 9 }, (_, i) => {
+        const d = i + 1
+        return rowHas[r][d] || colHas[c][d] || boxHas[b][d]
+      })
+    }),
+  )
+}
+
 export function isBoardSolved(values: Grid, conflicts: boolean[][]): boolean {
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {

@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useGameStore } from '../store/gameStore'
 import { boxOf } from '../engine/sudoku'
+import { computeNoteConflicts } from '../engine/validate'
 import { Cell } from './Cell'
 import type { CellPos } from '../types/game'
 
@@ -41,7 +42,12 @@ export function Board() {
   )
   const onRelease = useCallback(() => setSpotlight(null), [setSpotlight])
 
-  if (values.length === 0) return null
+  const noteConflicts = useMemo(
+    () => (values.length === 9 ? computeNoteConflicts(values) : null),
+    [values],
+  )
+
+  if (values.length === 0 || !noteConflicts) return null
 
   return (
     <div
@@ -70,6 +76,7 @@ export function Board() {
               hinted={hinted[row][col]}
               error={conflicts[row][col]}
               notes={notes[row][col]}
+              invalidNotes={noteConflicts[row][col]}
               selected={isSelected}
               spotlighted={isSpotlighted}
               peer={isPeer}

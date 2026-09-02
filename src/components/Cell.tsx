@@ -10,6 +10,7 @@ interface CellProps {
   hinted: boolean
   error: boolean
   notes: boolean[]
+  invalidNotes: boolean[]
   selected: boolean
   spotlighted: boolean
   peer: boolean
@@ -29,6 +30,7 @@ function CellInner({
   hinted,
   error,
   notes,
+  invalidNotes,
   selected,
   spotlighted,
   peer,
@@ -101,9 +103,11 @@ function CellInner({
               className={clsx(
                 'flex items-center justify-center text-[clamp(7px,1.9vw,10.5px)] font-medium leading-none',
                 on
-                  ? highlightedDigit === i + 1
-                    ? 'text-accent-400'
-                    : 'text-ink-300'
+                  ? invalidNotes[i]
+                    ? 'font-bold text-bad-400'
+                    : highlightedDigit === i + 1
+                      ? 'text-accent-400'
+                      : 'text-ink-300'
                   : 'text-transparent',
               )}
             >

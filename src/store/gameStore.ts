@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { DIFFICULTIES, generatePuzzle } from '../engine/sudoku'
+import { DIFFICULTIES, generatePuzzle, isSafe } from '../engine/sudoku'
 import { computeConflicts, isBoardSolved } from '../engine/validate'
 import { haptics, setHapticsEnabled } from '../utils/haptics'
 import { sfx, setSoundEnabled } from '../utils/sound'
@@ -186,9 +186,21 @@ export const useGameStore = create<GameState>()(
 
         if (s.notesMode) {
           const notes = cloneNotes(s.notes)
-          notes[row][col][digit - 1] = !notes[row][col][digit - 1]
-          set({ notes, history: pushHistory(s) })
-          if (s.settings.soundOn) sfx.note()
+          const turningOn = !notes[row][col][digit - 1]
+          notes[row][col][digit - 1] = turningOn
+          const invalid = turningOn && !isSafe(s.values, row, col, digit)
+
+          set({
+            notes,
+            history: pushHistory(s),
+            lastErrorCell: invalid ? { row, col } : s.lastErrorCell,
+          })
+          if (invalid) {
+            if (s.settings.soundOn) sfx.error()
+            if (s.settings.hapticsOn) haptics.error()
+          } else if (s.settings.soundOn) {
+            sfx.note()
+          }
           return
         }
 
