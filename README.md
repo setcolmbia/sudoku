@@ -61,6 +61,14 @@ Desde Android Studio: Run ▶ para probar en un emulador/dispositivo, o Build �
 
 `android/app/src/main/assets/public` (el contenido web empaquetado) se regenera automáticamente en cada build de CI y con `npx cap sync`. Nunca se edita a mano ni se versiona.
 
+### Ícono de la app
+
+Las fuentes del ícono viven en `assets/` (`icon-only.png`, `icon-foreground.png`, `icon-background.png`), calcadas del mismo diseño que `public/favicon.svg`. Si cambia el logo, regenera todos los tamaños de Android con:
+
+```bash
+npx @capacitor/assets generate --android --iconBackgroundColor '#0f1220' --iconBackgroundColorDark '#0f1220'
+```
+
 ### iOS
 
 Compilar y probar una app iOS requiere una Mac con Xcode (restricción de Apple, no de este proyecto). Cuando tengas acceso a una:
