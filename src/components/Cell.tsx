@@ -74,7 +74,7 @@ function CellInner({
       aria-label={`Casilla fila ${row + 1}, columna ${col + 1}`}
       className={clsx(
         'relative flex aspect-square items-center justify-center touch-none select-none',
-        'font-display text-[clamp(15px,4.6vw,26px)] font-semibold transition-colors duration-150',
+        'font-display text-[clamp(19px,5.8vw,34px)] font-semibold transition-colors duration-150',
         borderRight && 'border-r-2 border-r-bg-950/70',
         borderBottom && 'border-b-2 border-b-bg-950/70',
         'border-r border-r-white/5 border-b border-b-white/5',
